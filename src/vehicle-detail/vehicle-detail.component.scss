@@ -1,0 +1,99 @@
+$primary-color: #ff6600;
+$secondary-color: #cc5500;
+$text-color: #333;
+$background-color: #f5f5f5;
+$border-radius: 6px;
+$box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+$font-family: 'Arial', sans-serif;
+
+.vehicle-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: white;
+  font-family: $font-family;
+
+  .gallery {
+    text-align: center;
+
+    .main-image {
+      width: 600px;
+      border-radius: $border-radius;
+      box-shadow: $box-shadow;
+    }
+
+    .thumbnail-gallery {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      gap: 5px;
+
+      .thumbnail {
+        width: 80px;
+        height: 60px;
+        border-radius: $border-radius;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .vehicle-info {
+    text-align: center;
+    margin-top: 20px;
+
+    h1 {
+      color: $primary-color;
+      font-size: 24px;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    .vehicle-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+
+      div {
+        background: $background-color;
+        padding: 10px;
+        border-radius: $border-radius;
+      }
+    }
+  }
+
+  .vehicle-history {
+    background: $background-color;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: $border-radius;
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      color: $primary-color;
+    }
+  }
+
+  .vehicle-description {
+    background: $background-color;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: $border-radius;
+    width: 100%;
+
+    h2 {
+      color: $primary-color;
+    }
+  }
+}

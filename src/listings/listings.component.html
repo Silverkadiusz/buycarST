@@ -1,0 +1,84 @@
+<div class="listings-container">
+    <h1>Wyniki wyszukiwania</h1>
+
+    <div class="content-wrapper">
+        <!-- Lewy panel filtrów -->
+        <aside class="filters-panel">
+            <h2>Filtry</h2>
+
+            <div class="filter-group">
+                <label>Marka / Model</label>
+                <select formControlName="brand" (change)="onBrandSelect()">
+                    <option *ngFor="let brand of brands" [value]="brand">{{ brand }}</option>
+                </select>
+                <select formControlName="model">
+                    <option *ngFor="let model of models" [value]="model">{{ model }}</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Rok produkcji</label>
+                <input type="number" formControlName="minYear" placeholder="Od">
+                <input type="number" formControlName="maxYear" placeholder="Do">
+            </div>
+
+            <div class="filter-group">
+                <label>Cena (€)</label>
+                <input type="number" formControlName="minPrice" placeholder="Od">
+                <input type="number" formControlName="maxPrice" placeholder="Do">
+            </div>
+
+            <div class="filter-group">
+                <label>Przebieg (km)</label>
+                <input type="number" formControlName="minMileage" placeholder="Od">
+                <input type="number" formControlName="maxMileage" placeholder="Do">
+            </div>
+
+            <div class="filter-group">
+                <label>Lokalizacja</label>
+                <select formControlName="location">
+                    <option *ngFor="let loc of locations" [value]="loc">{{ loc }}</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>Rodzaj paliwa</label>
+                <div *ngFor="let fuel of fuelTypes">
+                    <input type="checkbox" [value]="fuel" formControlName="fuelType"> {{ fuel }}
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Skrzynia biegów</label>
+                <div *ngFor="let transmission of transmissionTypes">
+                    <input type="checkbox" [value]="transmission" formControlName="transmission"> {{ transmission }}
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>Typ nadwozia</label>
+                <div class="body-type-grid">
+                    <div *ngFor="let body of bodyTypes" class="body-type">
+                        <img [src]="'/assets/icons/' + body + '.png'" alt="{{ body }}">
+                        <p>{{ body }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="filter-button" (click)="applyFilters()">Zastosuj filtry</button>
+        </aside>
+
+        <!-- Główna sekcja listy wyników -->
+        <section class="listings-grid">
+            <div *ngFor="let car of cars" class="car-card">
+                <img [src]="car.image" alt="{{ car.brand }} {{ car.model }}">
+                <div class="car-info">
+                    <h2>{{ car.brand }} {{ car.model }}</h2>
+                    <p class="price">{{ car.price | currency:'EUR' }}</p>
+                    <p class="details">{{ car.year }} • {{ car.mileage }} km • {{ car.location }}</p>
+                </div>
+                <button routerLink="/vehicle-detail/{{ car.id }}">Szczegóły</button>
+            </div>
+        </section>
+    </div>
+</div>

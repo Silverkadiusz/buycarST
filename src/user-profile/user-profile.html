@@ -1,0 +1,25 @@
+<div class="user-profile-container">
+    <h1>Profil użytkownika</h1>
+    <form [formGroup]="userForm" (ngSubmit)="saveProfile()">
+        <label>Imię i nazwisko</label>
+        <input type="text" formControlName="name">
+
+        <label>Email</label>
+        <input type="email" formControlName="email">
+
+        <label>Telefon</label>
+        <input type="text" formControlName="phone">
+
+        <button type="submit">Zapisz</button>
+    </form>
+
+    <h2>Twoje ogłoszenia</h2>
+    <ul>
+        <li *ngFor="let listing of listings">
+            {{ listing.brand }} {{ listing.model }} - {{ listing.year }} - {{ listing.price }} PLN
+            <span [ngClass]="{'active': listing.status === 'Aktywne', 'sold': listing.status === 'Sprzedane'}">
+        {{ listing.status }}
+      </span>
+        </li>
+    </ul>
+</div>

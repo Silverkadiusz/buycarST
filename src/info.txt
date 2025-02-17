@@ -47,3 +47,29 @@ wyników (data dodania, cena rosnąco/malejąco)
 │── app-routing.module.ts          # Konfiguracja tras
 │── app.module.ts                  # Główny moduł aplikacji
 │── main.ts                         # Punkt startowy aplikacji
+
+
+📂 src/
+│── 📂 core/ (Moduły i serwisy globalne) ✅
+│ ├── services/ (Serwisy API) ✅ (mamy car.service.ts i możemy dodać user.service.ts)
+│ ├── models/ (Interfejsy danych) 🟠 (możemy dodać car.model.ts, user.model.ts)
+│ ├── guards/ (Ochrona tras, np. auth guard) 🟠 (możemy dodać auth.guard.ts)
+│ ├── interceptors/ (Interceptory HTTP, np. JWT token) 🟠 (możemy dodać token.interceptor.ts)
+
+│── 📂 features/ (Moduły funkcjonalne) ✅
+│ ├── dashboard/ (Strona główna z wyszukiwarką – OK!) ✅
+│ ├── listings/ (Lista wyników wyszukiwania – OK!) ✅
+│ ├── vehicle-detail/ (Szczegóły pojazdu – OK!) ✅
+│ ├── user-profile/ (Profil użytkownika) 🟠 (możemy dodać)
+│ ├── add-listing/ (Dodawanie nowego ogłoszenia) 🟠 (możemy dodać)
+│ ├── edit-listing/ (Edycja ogłoszenia) 🟠 (możemy dodać)
+│ ├── auth/ (Logowanie i rejestracja) 🟠 (możemy dodać login.component.ts, register.component.ts)
+
+│── 📂 shared/ (Komponenty wielokrotnego użytku) 🟠
+│ ├── dropdown/ (Komponent list rozwijanych – do dodania?) 🟠
+│ ├── card/ (Karta pojazdu – możemy wyodrębnić?) 🟠
+│ ├── loader/ (Spinner ładowania – do dodania?) 🟠
+
+│── app-routing.module.ts (Konfiguracja tras – OK!) ✅
+│── app.module.ts (Główny moduł aplikacji – OK!) ✅
+│── main.ts (Punkt startowy aplikacji – OK!) ✅

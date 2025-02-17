@@ -1,0 +1,66 @@
+<div class="dashboard-container">
+    <h1>Znajdź swoje auto 🚗</h1>
+    <nav class="main-nav">
+        <a routerLink="#">Samochody</a>
+        <a routerLink="#">Samochody Elektryczne</a>
+        <a routerLink="#">Motocykle</a>
+        <a routerLink="#">Pojazdy Użytkowe</a>
+        <a routerLink="#">Maszyny Rolnicze</a>
+        <a routerLink="#">Części i Akcesoria</a>
+        <button class="cta">Sprzedaj Pojazd</button>
+        <a routerLink="#">Zaloguj się</a>
+        <a routerLink="#">Zarejestruj</a>
+    </nav>
+
+    <div class="category-buttons">
+        <button (click)="navigateToCategory('spalinowe')">Samochody Spalinowe</button>
+        <button (click)="navigateToCategory('elektryczne')">Samochody Elektryczne</button>
+        <button (click)="navigateToCategory('rolnicze')">Maszyny Rolnicze</button>
+        <button (click)="navigateToCategory('inne')">Inne</button>
+    </div>
+
+    <form [formGroup]="searchForm" (ngSubmit)="searchCars()" class="search-box">
+        <label>Marka:</label>
+        <select formControlName="brand" (change)="onBrandSelect()">
+            <option *ngFor="let brand of brands" [value]="brand">{{ brand }}</option>
+        </select>
+
+        <label>Model:</label>
+        <select formControlName="model">
+            <option *ngFor="let model of models" [value]="model">{{ model }}</option>
+        </select>
+
+        <label>Przedział cenowy:</label>
+        <input type="number" formControlName="minPrice" placeholder="Min">
+        <input type="number" formControlName="maxPrice" placeholder="Max">
+
+        <label>Rok produkcji:</label>
+        <input type="number" formControlName="minYear" placeholder="Od">
+        <input type="number" formControlName="maxYear" placeholder="Do">
+
+        <label>Rodzaj paliwa:</label>
+        <select formControlName="fuelType">
+            <option *ngFor="let fuel of fuelTypes" [value]="fuel">{{ fuel }}</option>
+        </select>
+
+        <label>Typ nadwozia:</label>
+        <select formControlName="bodyType">
+            <option *ngFor="let body of bodyTypes" [value]="body">{{ body }}</option>
+        </select>
+
+        <label>Lokalizacja:</label>
+        <select formControlName="location">
+            <option *ngFor="let loc of locations" [value]="loc">{{ loc }}</option>
+        </select>
+
+        <label>Skrzynia biegów:</label>
+        <select formControlName="transmission">
+            <option *ngFor="let trans of transmissionTypes" [value]="trans">{{ trans }}</option>
+        </select>
+
+        <label>Przebieg (km):</label>
+        <input type="number" formControlName="mileage">
+
+        <button type="submit">Szukaj</button>
+    </form>
+</div>

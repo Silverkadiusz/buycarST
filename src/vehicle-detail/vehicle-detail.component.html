@@ -1,0 +1,38 @@
+<div class="vehicle-detail-container">
+    <div class="gallery">
+        <img [src]="vehicle.images[0]" alt="{{ vehicle.brand }} {{ vehicle.model }}" class="main-image">
+        <div class="thumbnail-gallery">
+            <img *ngFor="let img of vehicle.images.slice(1)" [src]="img" class="thumbnail" alt="Thumbnail">
+        </div>
+    </div>
+
+    <div class="vehicle-info">
+        <h1>{{ vehicle.brand }} {{ vehicle.model }}</h1>
+        <p class="price">{{ vehicle.price | currency:'EUR' }}</p>
+
+        <div class="vehicle-details">
+            <div><strong>Mileage:</strong> {{ vehicle.mileage }} km</div>
+            <div><strong>Year:</strong> {{ vehicle.year }}</div>
+            <div><strong>Engine:</strong> {{ vehicle.engine }}</div>
+            <div><strong>Transmission:</strong> {{ vehicle.transmission }}</div>
+            <div><strong>Body Type:</strong> {{ vehicle.bodyType }}</div>
+            <div><strong>Doors:</strong> {{ vehicle.doors }}</div>
+            <div><strong>Color:</strong> {{ vehicle.color }}</div>
+            <div><strong>NCT Expiry:</strong> {{ vehicle.nctExpiry }}</div>
+            <div><strong>Total Owners:</strong> {{ vehicle.totalOwners }}</div>
+        </div>
+    </div>
+
+    <div class="vehicle-history">
+        <h2>Greenlight Check</h2>
+        <p *ngIf="vehicle.greenlightVerified; else notVerified">✅ Verified</p>
+        <ng-template #notVerified>
+            <p>⚠️ Not Verified - We recommend a full history check.</p>
+        </ng-template>
+    </div>
+
+    <div class="vehicle-description">
+        <h2>Description</h2>
+        <p>{{ vehicle.description }}</p>
+    </div>
+</div>
