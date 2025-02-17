@@ -1,0 +1,49 @@
+Strona główna sekcji motoryzacyjnej (HTML, TypeScript, FormsModule)
+
+Przyciskowe nawigowanie do różnych kategorii pojazdów:
+✅ Samochody spalinowe
+✅ Samochody elektryczne
+✅ Maszyny rolnicze
+✅ Inne
+Filtry wyszukiwania samochodów
+
+✅ Marka i model pojazdu
+✅ Zakres cenowy (min/max)
+✅ Zakres rocznika (od/do)
+✅ Rodzaj paliwa (Benzyna, Diesel, Hybryda, Elektryczny itp.)
+✅ Typ nadwozia (SUV, Sedan, Hatchback itd.)
+✅ Skrzynia biegów (manualna/automatyczna)
+Sekcje dynamicznych ofert
+
+✅ Polecane oferty (załadowane z API)
+✅ Najnowsze ogłoszenia (załadowane z API)
+Paginacja i sortowanie
+
+✅ Obsługa paginacji (przycisk "poprzednia" / "następna strona")
+✅ Sortowanie
+wyników (data dodania, cena rosnąco/malejąco)
+
+📂 src/
+│── 📂 core/                     # Moduły i serwisy globalne
+│   ├── services/                # Serwisy API
+│   ├── models/                  # Interfejsy danych
+│   ├── guards/                  # Ochrona tras
+│   ├── interceptors/            # Interceptory HTTP
+│
+│── 📂 features/                  # Moduły funkcjonalne
+│   ├── dashboard/                # Strona główna z wyszukiwarką
+│   ├── listings/                 # Lista wyników wyszukiwania
+│   ├── vehicle-detail/           # Szczegóły pojazdu
+│   ├── user-profile/             # Profil użytkownika
+│   ├── add-listing/              # Dodawanie nowego ogłoszenia
+│   ├── edit-listing/             # Edycja ogłoszenia
+│   ├── auth/                     # Logowanie i rejestracja
+│
+│── 📂 shared/                     # Komponenty wielokrotnego użytku
+│   ├── dropdown/                  # Komponent list rozwijanych
+│   ├── card/                      # Karta pojazdu
+│   ├── loader/                    # Spinner ładowania
+│
+│── app-routing.module.ts          # Konfiguracja tras
+│── app.module.ts                  # Główny moduł aplikacji
+│── main.ts                         # Punkt startowy aplikacji
